@@ -6,7 +6,9 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.SparkMaxAnalogSensor.Mode;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -27,15 +29,23 @@ public class DriveTrain extends SubsystemBase {
     leftBack = new CANSparkMax(DriveTrainConstants.backlLeftCANID, MotorType.kBrushless);
     rightFront = new CANSparkMax(DriveTrainConstants.frontrightCANID, MotorType.kBrushless);
     rightBack = new CANSparkMax(DriveTrainConstants.backRightCANID, MotorType.kBrushless);
+    
+    leftFront.setIdleMode(IdleMode.kBrake);
+    leftBack.setIdleMode(IdleMode.kBrake);
+    rightFront.setIdleMode(IdleMode.kBrake);
+    rightBack.setIdleMode(IdleMode.kBrake);
 
     leftBack.follow(leftFront);
     rightBack.follow(rightFront);
+
     leftFront.setInverted(true);
     rightFront.setInverted(false);
+
     leftLeadEncoder = leftFront.getEncoder();
     leftLeadEncoder.setPositionConversionFactor(DriveTrainConstants.ticksToInches);
     rightLeadEncoder = rightFront.getEncoder();
     rightLeadEncoder.setPositionConversionFactor(DriveTrainConstants.ticksToInches);
+
     differentialDrive = new DifferentialDrive(leftFront, rightFront);
   }
 
