@@ -17,9 +17,12 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static class DriveTrainConstants {
-    public static final int frontLeftCANID = 4;
+    public static final int frontLeftCANID = 3;
     public static final int frontrightCANID = 5;
     public static final int backlLeftCANID = 2;
-    public static final int backRightCANID = 3;
+    public static final int backRightCANID = 4;
+    public static final int wheelDiameter = 6;
+    public static final double gearRatio = 8.68;
+    public static final double ticksToInches = (wheelDiameter * Math.PI) / gearRatio;
   }
 }

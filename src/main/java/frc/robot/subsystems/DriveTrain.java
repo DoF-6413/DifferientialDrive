@@ -24,13 +24,18 @@ public class DriveTrain extends SubsystemBase {
   
   public DriveTrain() {
     leftFront = new CANSparkMax(DriveTrainConstants.frontLeftCANID, MotorType.kBrushless);
-    leftBack = new CANSparkMax(DriveTrainConstants.backlLeftCANID, MotorType.kBrushed);
+    leftBack = new CANSparkMax(DriveTrainConstants.backlLeftCANID, MotorType.kBrushless);
     rightFront = new CANSparkMax(DriveTrainConstants.frontrightCANID, MotorType.kBrushless);
     rightBack = new CANSparkMax(DriveTrainConstants.backRightCANID, MotorType.kBrushless);
+
     leftBack.follow(leftFront);
     rightBack.follow(rightFront);
+    leftFront.setInverted(true);
+    rightFront.setInverted(false);
     leftLeadEncoder = leftFront.getEncoder();
+    leftLeadEncoder.setPositionConversionFactor(DriveTrainConstants.ticksToInches);
     rightLeadEncoder = rightFront.getEncoder();
+    rightLeadEncoder.setPositionConversionFactor(DriveTrainConstants.ticksToInches);
     differentialDrive = new DifferentialDrive(leftFront, rightFront);
   }
 
@@ -41,4 +46,17 @@ public class DriveTrain extends SubsystemBase {
   public void drive(double driveStick, double turnStick) {
     differentialDrive.arcadeDrive(driveStick, turnStick);
   }
-}
+  public void resetPos(double resetPos) {
+    leftLeadEncoder.setPosition(resetPos);
+    rightLeadEncoder.setPosition(resetPos);
+  }
+  public double getLeftPos() {
+    return leftLeadEncoder.getPosition();
+  }
+  public double getRightPos() {
+    return rightLeadEncoder.getPosition();
+  }
+  public double getAvgPos() {
+    return (getLeftPos() + getRightPos()) / 2;
+  }
+} 

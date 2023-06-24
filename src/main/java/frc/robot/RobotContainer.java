@@ -31,7 +31,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    driveTrain.setDefaultCommand(new RunCommand(()->driveTrain.drive(m_driverController.getLeftY(), m_driverController.getRightX())));
+    driveTrain.setDefaultCommand(new RunCommand(()->driveTrain.drive(m_driverController.getLeftY(), m_driverController.getRightX()), driveTrain));
     configureBindings();
   }
 
