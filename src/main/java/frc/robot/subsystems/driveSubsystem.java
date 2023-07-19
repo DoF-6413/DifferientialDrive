@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -17,6 +18,8 @@ public class driveSubsystem extends SubsystemBase {
   private final CANSparkMax LeftMotor2;
   private final CANSparkMax RightMotor1;
   private final CANSparkMax RightMotor2;
+  private final RelativeEncoder RightEncoder;
+  private final RelativeEncoder LeftEncoder;
   private final MotorControllerGroup LeftMotorControllerGroup;
   private final MotorControllerGroup RightMotorControllerGroup;
   private final DifferentialDrive DiffDrive;
