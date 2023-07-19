@@ -50,7 +50,9 @@ public class RobotContainer {
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
 
-    m_DriveSubsystem.setDefaultCommand(new RunCommand(()-> m_DriveSubsystem.diffDrive(m_driverController.getLeftY(), m_driverController.getRightX())));
+    m_DriveSubsystem.setDefaultCommand(
+      new RunCommand(()-> 
+      m_DriveSubsystem.diffDrive(m_driverController.getLeftY(), m_driverController.getRightX()),m_DriveSubsystem));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.

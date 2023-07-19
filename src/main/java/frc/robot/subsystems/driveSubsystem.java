@@ -22,12 +22,16 @@ public class driveSubsystem extends SubsystemBase {
   private final DifferentialDrive DiffDrive;
   /** Creates a new driveSubsystem. */
   public driveSubsystem() {
-    RightMotor1 = new CANSparkMax (3, MotorType.kBrushless);
+    RightMotor1 = new CANSparkMax (4, MotorType.kBrushless);
     RightMotor2 = new CANSparkMax (5, MotorType.kBrushless);
     LeftMotor1 = new CANSparkMax (2, MotorType.kBrushless);
-    LeftMotor2 = new CANSparkMax (4, MotorType.kBrushless);
+    LeftMotor2 = new CANSparkMax (3, MotorType.kBrushless);
     LeftMotorControllerGroup = new MotorControllerGroup(LeftMotor1, LeftMotor2);
     RightMotorControllerGroup  = new MotorControllerGroup(RightMotor1, RightMotor2);
+    RightMotor1.setInverted(true);
+    RightMotor2.setInverted(true);
+    LeftMotor1.setInverted(false);
+    LeftMotor2.setInverted(false);
     DiffDrive = new DifferentialDrive(LeftMotorControllerGroup, RightMotorControllerGroup);
   }
   public void diffDrive (double speed,double direction) {
