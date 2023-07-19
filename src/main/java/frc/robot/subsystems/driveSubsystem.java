@@ -28,7 +28,10 @@ public class driveSubsystem extends SubsystemBase {
     LeftMotor2 = new CANSparkMax (4, MotorType.kBrushless);
     LeftMotorControllerGroup = new MotorControllerGroup(LeftMotor1, LeftMotor2);
     RightMotorControllerGroup  = new MotorControllerGroup(RightMotor1, RightMotor2);
-    DiffDrive = new DifferentialDrive(LeftMotorControllerGroup, RightMotorControllerGroup); 
+    DiffDrive = new DifferentialDrive(LeftMotorControllerGroup, RightMotorControllerGroup);
+  }
+  public void diffDrive (double speed,double direction) {
+    DiffDrive.arcadeDrive(speed, direction);
   }
 
   @Override
