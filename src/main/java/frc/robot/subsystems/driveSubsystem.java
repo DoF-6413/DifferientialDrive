@@ -12,6 +12,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DriveTrainConstants;
 
 public class driveSubsystem extends SubsystemBase {
   private final CANSparkMax LeftMotor1;
@@ -25,21 +26,43 @@ public class driveSubsystem extends SubsystemBase {
   private final DifferentialDrive DiffDrive;
   /** Creates a new driveSubsystem. */
   public driveSubsystem() {
-    RightMotor1 = new CANSparkMax (4, MotorType.kBrushless);
-    RightMotor2 = new CANSparkMax (5, MotorType.kBrushless);
-    LeftMotor1 = new CANSparkMax (2, MotorType.kBrushless);
-    LeftMotor2 = new CANSparkMax (3, MotorType.kBrushless);
+    RightMotor1 = new CANSparkMax (DriveTrainConstants.RightMotor1CANID, MotorType.kBrushless);
+    RightMotor2 = new CANSparkMax (DriveTrainConstants.RightMotor2CANID, MotorType.kBrushless);
+    LeftMotor1 = new CANSparkMax (DriveTrainConstants.LeftMotor1CANID, MotorType.kBrushless);
+    LeftMotor2 = new CANSparkMax (DriveTrainConstants.LeftMotor2CANID, MotorType.kBrushless);
+    LeftEncoder = LeftMotor1.getEncoder();
+    RightEncoder = RightMotor1.getEncoder();
+    LeftEncoder.setPositionConversionFactor(DriveTrainConstants.TicksToFeet);
+    RightEncoder.setPositionConversionFactor(DriveTrainConstants.TicksToFeet);
     LeftMotorControllerGroup = new MotorControllerGroup(LeftMotor1, LeftMotor2);
     RightMotorControllerGroup  = new MotorControllerGroup(RightMotor1, RightMotor2);
-    RightMotor1.setInverted(true);
-    RightMotor2.setInverted(true);
-    LeftMotor1.setInverted(false);
-    LeftMotor2.setInverted(false);
+    RightMotor1.setInverted(DriveTrainConstants.RightMotor1Inverted);
+    RightMotor2.setInverted (DriveTrainConstants.RightMotor2Inverted);
+    LeftMotor1.setInverted (DriveTrainConstants.LeftMotor1Inverted);
+    LeftMotor2.setInverted(DriveTrainConstants.LeftMotor2Inverted);
     DiffDrive = new DifferentialDrive(LeftMotorControllerGroup, RightMotorControllerGroup);
   }
   public void diffDrive (double speed,double direction) {
     DiffDrive.arcadeDrive(speed, direction);
   }
+
+  public double ReturnsLeftDistanceValue () {
+    return LeftEncoder.getPosition();
+  }
+
+   public double ReturnsRightDistanceValue () {
+    return RightEncoder.getPosition();
+  }
+  
+  public void ResetDistance () {
+    LeftEncoder.setPosition(0);
+    RightEncoder.setPosition(0);
+  }
+  
+  public double AverageDistance () {
+    return (ReturnsLeftDistanceValue() + ReturnsRightDistanceValue())/2;
+  }
+
 
   @Override
   public void periodic() {
