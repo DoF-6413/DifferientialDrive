@@ -16,4 +16,16 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public final class driveTrainConstants{
+    public static final int SpookyID = 0;
+    public static final int CandyID = 0;
+    public static final int GhostID = 0;
+    public static final int BOOID = 0;
+
+    public static final boolean SpookyInverted = false;
+    public static final boolean CandyInverted = false; 
+    public static final boolean GhostInverted = false;
+    public static final boolean BOOInverted = false;
+  }
 }
