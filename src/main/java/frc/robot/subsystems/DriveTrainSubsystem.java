@@ -56,7 +56,12 @@ public class DriveTrainSubsystem extends SubsystemBase {
  public void periodic() {
     
  }
+public void arcadedrive(double leftjoystick, double rightjoystick) {
+   diffDrive.arcadeDrive (leftjoystick, rightjoystick);
+
 }
+}
+
 
   
 

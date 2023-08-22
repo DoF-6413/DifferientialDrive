@@ -18,11 +18,11 @@ public final class Constants {
   }
 
   public static class DriveTrainConstants {
-    public static final int leftLeadID = 0;
-    public static final int rightLeadID = 0;
-    public static final int leftFollowerID = 0;
-    public static final int rightFollowerID = 0;
-    public static final boolean leftLeadinverted = false;
+    public static final int leftLeadID = 3;
+    public static final int rightLeadID = 5;
+    public static final int leftFollowerID = 2;
+    public static final int rightFollowerID = 4;
+    public static final boolean leftLeadinverted = true;
     public static final boolean rightLeadinverted = false;
   }
 
