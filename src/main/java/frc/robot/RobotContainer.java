@@ -49,7 +49,7 @@ private final DriveTrainSubsystem m_DriveTrainSubsystem = new DriveTrainSubsyste
         ()->
         m_DriveTrainSubsystem.arcadedrive(
           m_driverController.getLeftY(), 
-          m_driverController.getLeftX())
+          m_driverController.getRightX())
           ,m_DriveTrainSubsystem));
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
