@@ -40,7 +40,7 @@ public class DriveTrain extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public void DifferentialDrive(double Drive,double Turn){
+  public void Drive(double Drive,double Turn){
    DiffDrive.arcadeDrive(Drive, Turn);
  }
 }
