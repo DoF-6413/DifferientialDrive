@@ -17,15 +17,15 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static class DriveTrainConstants{
- public static final int LeftDriveMotor1 = 0;
- public static final int LeftDriveMotor2 = 0;
- public static final int RightDriveMotor3 = 0;
- public static final int RightDriveMotor4 = 0;
+ public static final int LeftDriveMotor1 = 3;
+ public static final int LeftDriveMotor2= 2;
+ public static final int RightDriveMotor3 = 5;
+ public static final int RightDriveMotor4 = 4;
 
  public static final boolean isLeftDriveMotor1Inverted = false;
  public static final boolean isLeftDriveMotor2Inverted = false;
- public static final boolean isRightDriveMotor3Inverted = false;
- public static final boolean isRightDriveMotor4Inverted = false;
+ public static final boolean isRightDriveMotor3Inverted = true;
+ public static final boolean isRightDriveMotor4Inverted = true;
   }
 }
 
