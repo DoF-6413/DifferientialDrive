@@ -16,4 +16,11 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  public static final class DriveTrain {
+    public static final int WheelRad = 2; // 2 inches
+    public static final double WheelDiameter = 4; // 4 inches
+    public static final int MaxLinearVelocity = 6; // 6 km/hr
+  }
+
+
 }
