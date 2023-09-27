@@ -49,6 +49,6 @@ iLoveDiffDrive = new DifferentialDrive(leftMotors, rightMotors);
     // This method will be called once per scheduler run
   }
   public void DiffDrive(double leftMotorValue, double rightMotorValue){
-    iLoveDiffDrive.tankDrive(leftMotorValue, rightMotorValue);
+    iLoveDiffDrive.arcadeDrive(leftMotorValue, rightMotorValue);
   }
 }

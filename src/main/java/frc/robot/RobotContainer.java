@@ -50,10 +50,11 @@ public class RobotContainer {
 m_iLoveDriveSubSystem.setDefaultCommand(
   new RunCommand(
     ()-> m_iLoveDriveSubSystem.DiffDrive(
-      m_driverController.getLeftY(),m_driverController.getRightY()),
+      m_driverController.getLeftY(),m_driverController.getRightX()),
     m_iLoveDriveSubSystem
     )
     );
+
   }
 
   /**
