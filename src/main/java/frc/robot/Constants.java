@@ -20,6 +20,12 @@ public final class Constants {
     public static final int WheelRad = 2; // 2 inches
     public static final double WheelDiameter = 4; // 4 inches
     public static final int MaxLinearVelocity = 6; // 6 km/hr
+    public static final int leftMotorCanId = 3;
+    public static final int leftMotor2CanId = 2;
+    public static final int rightMotorCanId = 5;
+    public static final int rightMotor2CanId = 4;
+    public static final boolean leftMotorsInverted = false;
+    public static final boolean rightMotorsInverted = true;
   }
 
 
