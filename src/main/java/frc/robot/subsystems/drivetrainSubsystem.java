@@ -49,4 +49,12 @@ public class drivetrainSubsystem extends SubsystemBase {
   public void diffDrive(double leftMotorValue, double rightMotorValue){
     diffDrive.arcadeDrive(leftMotorValue, rightMotorValue);
   }
+  public void resetPos(double resetPos){
+    leftEncoder.setPosition(resetPos);
+    rightEncoder.setPosition(resetPos);
+  }
+  public void getLeftPos(){
+    return leftEncoder.getPosition();
+  }
+
 }
