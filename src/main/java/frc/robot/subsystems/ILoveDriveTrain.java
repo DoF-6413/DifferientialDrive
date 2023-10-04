@@ -51,4 +51,17 @@ iLoveDiffDrive = new DifferentialDrive(leftMotors, rightMotors);
   public void DiffDrive(double leftMotorValue, double rightMotorValue){
     iLoveDiffDrive.arcadeDrive(leftMotorValue, rightMotorValue);
   }
+  public void resetPosition(double resetPosition){
+    leftEncoder.setPosition(resetPosition);
+    rightEncoder.setPosition(resetPosition);
+  }
+  public double leftPos(){
+    return leftEncoder.getPosition();
+  }
+  public double rightPos(){
+    return rightEncoder.getPosition();
+  }
+  public double avgPos(){
+    return (leftPos() + rightPos())/2;
+  }
 }
