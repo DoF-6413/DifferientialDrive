@@ -25,6 +25,10 @@ public class ExampleSubsystem extends SubsystemBase {
         });
   }
 
+  public void exampleControllerCommand(double ExampleInput) {
+    
+  }
+
   /**
    * An example method querying a boolean state of the subsystem (for example, a digital sensor).
    *

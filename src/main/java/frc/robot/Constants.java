@@ -14,6 +14,15 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static final int DRIVE_CONTROLLER_PORT = 0;
+  }
+  public static class DriveTrainConstants {
+    public static final int FRONT_LEFT_CANID = 3;
+    public static final int FRONT_RIGHT_CANID = 5;
+    public static final int BACK_LEFT_CANID = 2;
+    public static final int BACK_RIGHT_CANID = 4;
+    public static final int WHEEL_DIAMETER = 6;
+    public static final double GEAR_RATIO = 8.68;
+    public static final double TICKS_TO_INCHES = (WHEEL_DIAMETER * Math.PI) / GEAR_RATIO;
   }
 }
