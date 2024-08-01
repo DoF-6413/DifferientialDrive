@@ -16,4 +16,16 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class DriveTrainConstants {
+    public static final int FRMotorID = 123;
+    public static final int FLMotorID = 234;
+    public static final int BRMotorID = 456;
+    public static final int BLMotorID = 567;
+    public static final int wheelDiameter = 6;
+    public static final double gearRatio = 8.68;
+    public static final double ticksToInches = (wheelDiameter * Math.PI) / gearRatio;
+    public static final boolean leftInversion = false;
+    public static final boolean rightInversion = true;
+  }
 }
