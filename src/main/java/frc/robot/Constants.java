@@ -14,6 +14,12 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static final int DRIVER_CONTROLLER_PORT = 0;
+  }
+  public static final class drivetrain {
+    public static final int WHEEL_RADIUS = 2;//2 inches
+    public static final double WHEEL_DIAMETER = 4;//4 inches
+    public static final int MAX_LINEAR_VELOCITY = 6;//6 kilometers per hour
+    public static final int LEFT_FRONT_MOTOR_ID = 3;//Can ID of left motor
   }
 }
