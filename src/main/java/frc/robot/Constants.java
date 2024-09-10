@@ -20,6 +20,11 @@ public final class Constants {
     public static final int WHEEL_RADIUS = 2;//2 inches
     public static final double WHEEL_DIAMETER = 4;//4 inches
     public static final int MAX_LINEAR_VELOCITY = 6;//6 kilometers per hour
-    public static final int LEFT_FRONT_MOTOR_ID = 3;//Can ID of left motor
+    public static final int LEFT_FRONT_MOTOR_ID = 3;//Can ID of left front motor
+    public static final int RIGHT_FRONT_MOTOR_ID = 5;//Can ID of right front motor
+    public static final int LEFT_BACK_MOTOR_ID = 7;//Can ID of left back motor
+    public static final int RIGHT_BACK_MOTOR_ID = 8;//Can ID of right back motor
+    public static final boolean LEFT_MOTORS_INVERTED = true;//set motor to clockwise
+    public static final boolean RIGHT_MOTORS_INVERTED = true;//se motor to clockwise
   }
 }
