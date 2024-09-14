@@ -7,16 +7,18 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.drivetrain;
 
-public class drive {
+
+public class drive extends SubsystemBase {
  //creating a new drive train
   private final CANSparkMax LeftFrontMotor, LeftBackMotor, RightFrontMotor, RightBackMotor;
   private final MotorControllerGroup LeftMotors, RightMotors;
   private final RelativeEncoder LeftEncoder, RightEncoder;
-  private final DifferentialDrive diffdrive;
+  private static  DifferentialDrive diffdrive;
 
-  public drive() {
+  public drive(){
     //initialise the motors
     LeftFrontMotor = new CANSparkMax(drivetrain.LEFT_FRONT_MOTOR_ID, MotorType.kBrushless);
     LeftBackMotor = new CANSparkMax(drivetrain.LEFT_BACK_MOTOR_ID,MotorType.kBrushless);
@@ -39,6 +41,29 @@ public class drive {
     LeftEncoder = LeftFrontMotor.getEncoder();
     RightEncoder = RightFrontMotor.getEncoder();
     diffdrive = new DifferentialDrive(LeftFrontMotor, RightFrontMotor);
+  }
 
+  @Override
+  public void periodic (){
+  }
+  public void diffdrive (double Velocity, double Rotation){
+    diffdrive.arcadeDrive(Velocity, Rotation);
+  }
+  public void ResetPosition(double ResetPosition){
+    LeftEncoder.setPosition(ResetPosition);
+    RightEncoder.setPosition(ResetPosition);
+  }
+  public double LeftPosition(){
+    return LeftEncoder.getPosition();
+  }
+  public double RightPosition(){
+    return RightEncoder.getPosition();
+  }
+  public double AveragePosition(){
+    return (LeftPosition() + RightPosition())/2;
+  }
+
+  public static void setRaw (double velocity, double rotation) {
+    diffdrive.arcadeDrive(velocity, rotation);
   }
 }
