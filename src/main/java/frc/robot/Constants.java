@@ -14,6 +14,17 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static final int DRIVE_CONTROLLER_PORT = 0;
+  }
+  public static final class DriveTrainConstants  {
+    public static final int WHEEL_RAD = 2;  // 2 inches
+    public static final double WHEEL_DIAMETER = 4;  // 4 inches
+    public static final int MAX_LINEAR_VELOCITY = 6; // 6km/hr
+    public static final int LEFT_BACK_MOTOR_CAN_ID = 3;
+    public static final int LEFT_FRONT_MOTOR_CAN_ID = 2;
+    public static final int RIGHT_BACK_MOTOR_CAN_ID = 5;
+    public static final int RIGHT_FRONT_MOTOR_CAN_ID = 4;
+    public static final boolean LEFT_MOTORS_INVERTED = false;
+    public static final boolean RIGHT_MOTORS_INVERTED = true;
   }
 }
